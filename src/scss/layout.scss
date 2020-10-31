@@ -1,0 +1,486 @@
+@import "./variables";
+
+* {
+
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+html, body {
+
+    min-height: 100vh;
+    width: 100%;
+}
+
+//Header
+
+header {
+
+    min-height: 100%;
+}
+
+nav {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;  
+    align-items: center;  
+    padding: 1em;
+}
+
+.nav__brand {
+        
+    flex: 0 0 50%;
+
+    a {
+        display: block;
+        height: auto;
+        width: 100px;
+
+        > img {
+            
+            height: 100%;
+            width: 100%;
+        }
+    }   
+}
+
+.nav__toggler {
+
+    flex: 0 0 50%;
+    text-align: right;
+}
+
+.nav__toggler__btn {
+
+    display: inline-block;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    > span {
+
+        float: right;
+        clear: both;
+        background: $primaryText;
+        width: 35px;
+        height: 3px;
+        margin: .175em;    
+
+        &:nth-child(2) {
+            width: 25px;
+            transition: width .2s linear;
+        }
+
+        &:nth-child(3) {
+
+            width: 15px;   
+            transition: width .25s linear;         
+        }
+    }
+
+    &.open > span:nth-child(2), &.open > span:nth-child(3) {
+        width: 35px;
+    }
+
+}
+
+.nav__links {
+
+    flex: 0 0 100%;   
+    text-align: center; 
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .25s linear;
+
+
+    &.open {
+
+        max-height: 400px;        
+    }
+
+}
+
+.nav__links__list {
+
+    list-style: none;    
+    text-align: center;
+}
+
+.links__list__item {
+
+    display: block;
+    position: relative;
+    padding: .5em;
+            
+    > a {
+
+        position: relative;
+        color: $primaryText;
+        text-decoration: none;
+
+        &:not(#make__enquiry__btn):after {
+        
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            right: 0;
+            width: 0;
+            height: 3px;
+            background: $highlight;
+            transition: width .25s linear;
+        }
+    
+        &:not(#mak__enquiry__btn):hover:after {
+    
+            width: 100%;
+        }
+
+    }
+}
+
+#make__enquiry__wrapper {
+
+    padding: 1.5em 0;
+    float: none;
+}
+
+.header__content {
+
+    position: relative;
+}
+
+.header__content__text {
+    
+    padding: 1.5em 1em;
+
+    h1 {
+
+        margin-top: .5em
+    }
+
+    p {
+        padding: 1em 0;
+    }
+}
+
+.header__content__img {
+    
+    position: relative;
+    height: 45%;
+    padding: 1.5em 1em;
+    overflow: hidden;
+
+    > img {
+
+        width: 100%;
+        height: 100%;
+    }
+}
+
+#hci__shape {
+
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    border-right: 15px solid #fff;
+
+    > #hci__shape--inner {
+
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 15px;
+        width: 100%;
+        left: 0;
+        background: #fff;
+    }
+}
+
+.section__title {
+
+    font-size: 2.5em;
+}
+
+.title__sub {
+
+    margin-top: 2em;
+
+    &.indent {
+        margin-left: 0;
+    }
+}
+
+.title__sub__btn {
+
+
+    margin-top: 2em;
+}
+
+//Header
+
+//Main
+
+main {
+
+    padding: 2em 0;
+}
+
+// Our vision
+
+#vision {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;    
+
+    > div {
+
+        flex: 0 0 100%;
+    }
+}
+
+.vision__text {
+
+    background: $primaryText;
+    padding: 1.5em 1em;
+
+    p {
+        padding: 1em 0;
+    }
+
+}
+
+.vision__img {
+
+    background-image: url("../img/user.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 400px;
+}
+
+// Our vision
+
+// Carousel
+
+#carousel {
+
+    position: relative;
+    overflow: hidden;
+    max-height: 600px;
+}
+
+.owl-carousel {
+
+    width: 100%;
+    min-height: 100% !important;
+}
+
+.carousel__item {    
+
+    > img {
+
+        width: 100%;
+        height: auto;
+    }
+
+    > .carousel__item--img {
+
+        height: 300px;        
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        &#img--one {
+            background-image: url("../img/Cabin-8-Front-View.jpg");
+        }
+
+        &#img--two {
+            background-image: url("../img/Cabin-1-Side-View.jpg");
+        }
+
+        &#img--three {
+            background-image: url("../img/lounge.jpg");
+        }
+
+        &#img--four {
+            background-image: url("../img/user.jpg");
+        }
+    }
+
+}
+    
+
+.carousel__bottom {
+
+    width: 50%;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.carousel__bottom__info {
+
+    flex: 0 0 100%;
+    padding: 2em 1em;
+    background: #fff;
+
+    > div {
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;   
+        align-items: center;
+                
+        .info__title {
+            flex: 0 0 100%;
+
+            > h3 {
+
+                font-size: 2em;
+            }        
+        }
+
+        .info__actions {
+
+            padding: 1em 0;
+            flex: 0 0 100%;
+            display: flex;
+            align-items: center;       
+            
+            > a {
+
+                margin-right: 1em;
+            }
+
+        }
+
+    }
+
+}
+
+#add-cart {
+
+    position: relative;
+    border-radius: 50%;
+    height: 55px;
+    width: 55px;
+    padding: 0;
+
+    &::after {
+
+        content: "\002B";
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        font-size: 1.5em;
+    }
+}
+
+.carousel__controls {
+
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row-reverse;
+
+    .dots {
+
+        margin-left: 1.5em;
+
+        .owl-dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: transparent;
+            border: solid 2px $primaryText;
+            margin: 0 .25em;
+
+            &.active {
+
+                background-color: $primaryText;
+            }
+
+        }
+    }
+
+    .arrows {
+
+        > div {
+
+            position: relative;
+            display: inline-block;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: solid 2px $primaryText;
+            margin-left: .5em;
+            transition: background .2s linear;
+
+            &:hover {
+
+                cursor: pointer;
+                background: $primaryText;
+                color: $secondaryText;
+            }
+
+            &::after {
+
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 1.5em;
+            }
+
+            &.arrows--left::after {
+
+                content: "\2190";
+            }
+
+            &.arrows--right::after {
+
+                content: "\2192";
+            }
+
+        }
+    }
+
+}
+
+// Carousel
+
+// Add Value
+
+#add-value {
+
+    background-image: url("../img/lounge.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 400px;
+    margin: 3em 0;
+    padding: 1.5em 1em;
+}
+
+// Add Value
+
+//Main
+
+
+//Footer
+
+footer {
+
+    height: 500px;
+    background: url("../img/footer-bg.png");
+}
+
+//Footer
