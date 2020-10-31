@@ -36,7 +36,7 @@ nav {
 
     a {
         display: block;
-        height: auto;
+        height: 50px;
         width: 100px;
 
         > img {
@@ -108,6 +108,7 @@ nav {
 
     list-style: none;    
     text-align: center;
+    padding: 1em 0;
 }
 
 .links__list__item {
@@ -271,22 +272,14 @@ main {
 
     position: relative;
     overflow: hidden;
-    max-height: 600px;
 }
 
 .owl-carousel {
 
     width: 100%;
-    min-height: 100% !important;
 }
 
 .carousel__item {    
-
-    > img {
-
-        width: 100%;
-        height: auto;
-    }
 
     > .carousel__item--img {
 
@@ -318,7 +311,7 @@ main {
 .carousel__bottom {
 
     width: 50%;
-    bottom: 0;
+    bottom: -1px;
     left: 0;
     width: 100%;
     z-index: 999;
@@ -388,9 +381,10 @@ main {
     position: relative;
     width: 100%;
     display: flex;
-    justify-content: left;
+    justify-content: flex-end;
     align-items: center;
     flex-direction: row-reverse;
+    padding: 0 1em;
 
     .dots {
 

@@ -68,7 +68,13 @@
     
     .carousel__item {
 
-        height: 500px;
+        > .carousel__item--img {
+            height: 500px;
+        }
+    }
+
+    .carousel__controls {
+        bottom: 6%;
     }
 
     #add-value {
@@ -115,6 +121,32 @@
     .carousel__item {
 
         height: 600px;
+
+        > .carousel__item--img {
+
+            height: 100%;
+        }
+    }
+
+    .carousel__controls {
+
+        position: absolute;
+        bottom: 8%;
+        right: 0;
+        justify-content: flex-end;
+        width: 50%;
+        z-index: 999;
+        flex-direction: row;
+    }
+
+    .carousel__bottom {
+        position: absolute;
+        width: 50%;       
+    }
+
+    .info__title, .info__actions {
+
+        flex: 0 0 50% !important;
     }
 
     #add-value {
@@ -157,6 +189,7 @@
     .nav__links__list {
         flex: 1 0 auto;
         text-align: left;
+        padding: 0em;
     }
 
     .links__list__item {
@@ -213,42 +246,8 @@
 
     }
 
-    .carousel__item {
-
-        height: 600px;
-
-        > .carousel__item--img {
-
-            height: 100%;
-        }
-
-    }
-
-    .carousel__bottom {
-
-        position: absolute;
-        width: 50%;       
-    }
-
     .carousel__bottom__info {
         padding: 2em;
-    }
-
-    .info__title, .info__actions {
-
-        flex: 0 0 50% !important;
-    }
-
-    .carousel__controls {
-
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        justify-content: right;
-        width: 50%;
-        z-index: 999;
-        flex-direction: row;
-        padding: 2em 1em;
     }
 
     #add-value {
