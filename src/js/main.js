@@ -1,5 +1,7 @@
 (function () {
 
+    const navbar = $("nav");
+
     const navbarToggler = $(".nav__toggler__btn");
     const navLinks = $(".nav__links");
 
@@ -7,6 +9,21 @@
 
     const carouselLeft = $(".arrows--left");
     const carouselRight = $(".arrows--right");
+
+    $(document).on("scroll", _ => {
+        
+        if ($(document).scrollTop() > ($(navbar).outerHeight())) {
+
+            $(navbar).addClass("scrolled");
+            $(".header__content").css({ marginTop : $(navbar).outerHeight() });
+
+        } else {
+            $(navbar).removeClass("scrolled");
+            $(".header__content").css({ marginTop : 0 });
+        }
+
+    });
+
 
     navbarToggler.on("click", _ => {
         $(navLinks).toggleClass("open");

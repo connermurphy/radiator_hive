@@ -6,12 +6,6 @@ $highlight: #d6b360;
 $titleFont: itc-avant-garde-gothic-pro, sans-serif;
 $bodyFont: europa, sans-serif;
 
-@mixin fontStyle($type, $weight) {
-
-    font-family: $type; 
-    font-weight: $weight;
-}
-
 // Layout
 
 .container {
@@ -30,6 +24,13 @@ $bodyFont: europa, sans-serif;
     margin-bottom: auto;
 }
 
+@mixin flexRow($wrap) {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: $wrap;
+}
+
 // Layout
 
 //Buttons 
@@ -42,7 +43,7 @@ $bodyFont: europa, sans-serif;
     padding: 1em 2em;
     background: transparent;
     color: $primaryText;
-    transition: color, background-color .25s ease-in;
+    transition: color, background-color .15s ease-in;
     text-decoration: none;
 
     &.btn__outline--gold {
@@ -54,7 +55,20 @@ $bodyFont: europa, sans-serif;
             background: $highlight;
             color: $secondaryText;
         }
+    }
 
+    &.btn--gold {
+
+        background: $highlight;
+        border-color: $highlight;
+        color: $secondaryText;
+
+        &:hover {
+
+            background: $secondaryText;
+            color: $highlight;
+            border-color: $secondaryText;
+        }
     }
 
 }
@@ -62,6 +76,14 @@ $bodyFont: europa, sans-serif;
 //Buttons
 
 //Text
+
+
+@mixin fontStyle($type, $weight) {
+
+    font-family: $type; 
+    font-weight: $weight;
+}
+
 .text__dark {
     color: $primaryText;
 }
