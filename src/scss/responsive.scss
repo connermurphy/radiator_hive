@@ -4,7 +4,7 @@
 
 @media screen and (min-width: 768px) {
 
-    nav {
+    .nav__inner {
 
         padding: 1em 1.25em;
     }
@@ -75,7 +75,7 @@
         margin-bottom: 0;
     }
 
-    nav {
+    .nav__inner {
 
         padding: 1.5em 1.75em;
     } 
@@ -224,7 +224,7 @@
         max-width: 1366px;
     }
 
-    nav {
+    .nav__inner {
 
         padding: 2em;
     }

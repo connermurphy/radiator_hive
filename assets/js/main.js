@@ -1,6 +1,9 @@
 (function () {
 
     const navbar = $("nav");
+    const navbarInner = $(navbar).find(".nav__inner")
+
+    let navbarHeight = $(navbar).outerHeight();
 
     const navbarToggler = $(".nav__toggler__btn");
     const navLinks = $(".nav__links");
@@ -12,10 +15,10 @@
 
     $(document).on("scroll", _ => {
         
-        if ($(document).scrollTop() > ($(navbar).outerHeight())) {
+        if ($(document).scrollTop() > (navbarHeight)) {
 
             $(navbar).addClass("scrolled");
-            $(".header__content").css({ marginTop : $(navbar).outerHeight() });
+            $(".header__content").css({ marginTop : navbarHeight });
 
         } else {
             $(navbar).removeClass("scrolled");
