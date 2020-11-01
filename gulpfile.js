@@ -4,6 +4,8 @@ const gulpSass = require("gulp-sass");
 const autoprefixCSS = require("gulp-autoprefixer");
 const minifyCss = require("gulp-minify-css");
 
+const imagemin = require("gulp-imagemin");
+
 const minifyJS = require("gulp-minify");
 
 function sass() {
@@ -20,6 +22,12 @@ function js() {
         .pipe(dest("./assets/js/"));
 }
 
+function img() {
+    return src("./src/img/*")
+        .pipe(imagemin())
+        .pipe(dest("./assets/img"));
+    }
+
 exports.default = function() {
-    watch(["src/scss/*.scss", "src/js/*.js"], parallel(sass, js));
+    watch(["src/scss/*.scss", "src/js/*.js", "src/img/*"], parallel(sass, js, img));
 }
