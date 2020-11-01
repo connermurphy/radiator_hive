@@ -63,6 +63,16 @@
     .footer__content {
 
         padding: 2em;
+        text-align: left;
+    }
+
+    .footer__content__contact, .footer__content__links {
+
+        flex: 0 0 50%;        
+    }
+
+    .footer__content__links {
+        margin-top: 0;
     }
 
 }
@@ -203,17 +213,13 @@
     .footer__content {
 
         padding: 3em 4em;
-    }
-
-    .footer__content__contact, .footer__content__links {
-
-        flex: 0 0 50%;
+        padding-bottom: 6em !important;
     }
 
     .footer__content__links {
 
         li {
-            font-size: 48px;
+            font-size: 38px;
         }
     }
 }
@@ -289,5 +295,13 @@
     .footer__content {
 
         padding: 4em;
+        padding-bottom: 8em !important;
+    }
+
+    .footer__content__links {
+
+        li {
+            font-size: 48px;
+        }
     }
 }

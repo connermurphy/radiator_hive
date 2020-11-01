@@ -1,7 +1,6 @@
 (function () {
 
     const navbar = $("nav");
-    const navbarInner = $(navbar).find(".nav__inner")
 
     let navbarHeight = $(navbar).outerHeight();
 
@@ -12,6 +11,13 @@
 
     const carouselLeft = $(".arrows--left");
     const carouselRight = $(".arrows--right");
+
+    const newsletterInput = $(".footer__newsletter__wrapper").find("input");
+    const newsletterInputArrow = $(".footer__newsletter__wrapper").find("span");
+    const inputFill = $(".input__fill");
+    const inputFillText = $(".input__fill__text")
+
+    $(newsletterInput).val("");
 
     $(document).on("scroll", _ => {
         
@@ -26,7 +32,7 @@
         }
 
     });
-
+    
 
     navbarToggler.on("click", _ => {
         $(navLinks).toggleClass("open");
@@ -56,6 +62,21 @@
 
     $(carouselRight).on("click", _ => {
         owl.trigger("next.owl.carousel");
+    });
+
+    $(newsletterInput).on("keyup", (e) => {
+        $(inputFillText).text(e.target.value);
+    });
+
+    $(newsletterInputArrow).on("mouseenter", _ => {
+        $(inputFill).addClass("fill");  
+        $(inputFillText).addClass("fill");
+        $(newsletterInputArrow).addClass("fill");
+
+    }).on("mouseleave", _ => {
+        $(inputFill).removeClass("fill");      
+        $(inputFillText).removeClass("fill");  
+        $(newsletterInputArrow).removeClass("fill");
     });
     
 

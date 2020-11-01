@@ -39,12 +39,6 @@ nav {
         @include flexRow(wrap);
         align-items: center;  
         padding: 1em;
-
-        &.scrolled {
-
-            padding: .5em 1em;
-        }
-
     }
 
     &.scrolled {
@@ -503,6 +497,8 @@ footer {
 
     @include flexRow(wrap);
     padding: 2em 1em;
+    padding-bottom: 4em !important;
+    text-align: center;
 
     ul {
         list-style: none;
@@ -516,7 +512,7 @@ footer {
 
 .footer__content__contact {
 
-    font-size: 20px;
+    font-size: 1.25em;
 
     > p {
 
@@ -530,7 +526,7 @@ footer {
 
     .footer__newsletter {
 
-        p, form {
+        > p, form {
 
             padding: .5em 0;
         }
@@ -540,15 +536,56 @@ footer {
             display: inline-block;
             position: relative;
 
-            input {
+            .input__fill {
 
-                background: transparent;
-                padding: .75em 2.5em .75em .5em;
-                border: solid 1px #fff;
-                color: $secondaryText;
-                font-size: 15px;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;     
+                overflow: hidden;
+                background: #fff;                
+                color: $primaryText;                
+                width: 100%;
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform .2s linear;
+                font-size: .9em;
+
+                &.fill {
+
+                    transform: scaleX(1);     
+                }
             }
 
+            .input__fill__text {
+
+                visibility: hidden;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                padding: .5em 2.5em .5em .5em;
+                font-size: .9em;
+                color: $primaryText;
+                white-space: nowrap;
+                overflow: hidden;
+                max-width: 85%;
+
+                &.fill {
+                    visibility: visible;
+                }
+
+            }
+
+            input {
+            
+                background: transparent;
+                padding: .5em 2.5em .5em .5em;
+                border: solid 1px #fff;
+                color: $secondaryText;
+                transition: all .15s ease-in;
+                font-size: .9em;
+            }
+        
             span {
 
                 position: absolute;
@@ -556,6 +593,11 @@ footer {
                 top: 50%;
                 transform: translateY(-50%);
                 z-index: 999;
+                transition: all .15s ease-in;
+
+                &.fill {
+                    color: $primaryText;
+                }
 
                 &:hover {
 
@@ -569,12 +611,42 @@ footer {
 
 .footer__content__links {
 
+    margin-top: 1em;
+
     li {
 
         padding: .25em 0;
-        font-size: 30px;
-    }
+        font-size: 2em;
 
+        > a {
+
+            position: relative;
+
+            &::after {
+
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -10px;
+                right: 0;
+                width: 0;
+                height: 3px;
+                background: $highlight;
+                transition: width .25s linear;
+            }
+
+            &:hover:after {
+    
+                width: 100%;
+            }
+        }
+
+    }
+}
+
+.footer__icon {
+
+    font-size: 2.5em;
 }
 
 //Footer
