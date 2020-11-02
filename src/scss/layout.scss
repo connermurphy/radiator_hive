@@ -8,6 +8,11 @@
     user-select: none;
 }
 
+a {
+    text-decoration: none;
+    color: $secondaryText;
+}
+
 html, body {
 
     min-height: 100vh;
@@ -20,18 +25,34 @@ header {
 
     display: flex;
     flex-direction: column;
-
     max-height: 800px;
+    margin-bottom: 2em;
 }
 
 nav {
 
+    opacity: 0;
+    @include fadeIn(.35s, ease-in, 0s);
     flex: 0 1 auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;  
-    align-items: center;  
-    padding: 1em;
+    transition: all .2s linear;
+    max-width: 1366px;
+
+    .nav__inner {
+        
+        @include flexRow(wrap);
+        align-items: center;  
+        padding: 1em;
+    }
+
+    &.scrolled {
+
+        position: fixed;
+        width: 100%;
+        z-index: 9999;
+        box-shadow: 0px 2px 4px -4px rgba(0, 0, 0, .5);
+        background: #fff;
+    }
+
 }
 
 .nav__brand {
@@ -125,7 +146,6 @@ nav {
 
         position: relative;
         color: $primaryText;
-        text-decoration: none;
 
         &:not(#make__enquiry__btn):after {
         
@@ -166,23 +186,41 @@ nav {
 
     h1 {
 
+        transform: translateY(50px);
+        opacity: 0;       
+        @include fadeInAndUp(.5s, ease-in, 0s);
         margin-top: .5em
+        
     }
 
     p {
+
+        transform: translateY(50px);
+        opacity: 0; 
         padding: 1em 0;
+        @include fadeInAndUp(.5s, ease-in, .5s);
+    }
+
+    a {
+
+        opacity: 0;
+        @include fadeIn(.5s, ease-in, .75s);
     }
 }
 
 .header__content__img {
     
     position: relative;
+    opacity: 0;
+    transform: translateX(50px);
+    @include fadeInFromRight(.5s, ease-in, .75s);
     height: 300px;
     max-height: 100%;
     overflow: hidden;
     background-image: url("../img/Cabin-1-Side-View.jpg");
     background-position: center;
     background-size: cover;
+
 
     > img {
 
@@ -235,18 +273,11 @@ nav {
 
 //Main
 
-main {
-
-    padding: 2em 0;
-}
-
 // Our vision
 
 #vision {
 
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;    
+    @include flexRow(wrap); 
 
     > div {
 
@@ -259,18 +290,60 @@ main {
     background: $primaryText;
     padding: 1.5em 1em;
 
+    h1 {
+
+        opacity: 0;
+
+        &.visible {
+            @include fadeIn(.5s, ease-in, .75s);
+        }
+    }
+
     p {
+
+        transform: translateY(50px);
+        opacity: 0;
         padding: 1em 0;
+
+        &:nth-child(1) {
+            
+            &.visible {
+
+                @include fadeInAndUp(.5s, ease-in, .75s);
+            }
+        }
+
+        &:nth-child(2) {
+            
+            &.visible {
+
+                @include fadeInAndUp(.5s, ease-in, .85s);
+            }
+        }
+    }
+
+    a {
+
+        opacity: 0;
+
+        &.visible {
+            @include fadeIn(.5s, ease-in, 1.25s);
+        }
     }
 
 }
 
 .vision__img {
 
+    opacity: 0;
     background-image: url("../img/user.jpg");
     background-position: center;
     background-size: cover;
     height: 400px;
+
+    &.visible {
+        @include fadeIn(.5s, ease-in, .5s);
+    }
 }
 
 // Our vision
@@ -289,6 +362,13 @@ main {
 }
 
 .carousel__item {    
+
+    opacity: 0;
+    
+    &.visible {
+
+        @include fadeIn(.5s, ease-in, 0s);
+    }
 
     > .carousel__item--img {
 
@@ -313,7 +393,6 @@ main {
             background-image: url("../img/user.jpg");
         }
     }
-
 }
     
 
@@ -323,7 +402,7 @@ main {
     bottom: -1px;
     left: 0;
     width: 100%;
-    z-index: 999;
+    z-index: 99;
 }
 
 .carousel__bottom__info {
@@ -334,9 +413,7 @@ main {
 
     > div {
 
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;   
+        @include flexRow(wrap);
         align-items: center;
                 
         .info__title {
@@ -397,7 +474,13 @@ main {
 
     .dots {
 
+        opacity: 0;
         margin-left: 1.5em;
+
+        &.visible {
+
+            @include fadeIn(.5s, ease-in, .5s);
+        }
 
         .owl-dot {
             width: 15px;
@@ -416,6 +499,20 @@ main {
     }
 
     .arrows {
+
+        .arrows--left, .arrows--right {
+
+            opacity: 0;
+            transform: translateY(50px);
+
+            &:not(.arrows--right).visible {
+                @include fadeInAndUp(.5s, ease-in, .5s);
+            }
+            
+            &:not(.arrows--left).visible {
+                @include fadeInAndUp(.5s, ease-in, .75s);
+            }
+        }
 
         > div {
 
@@ -470,7 +567,46 @@ main {
     background-size: cover;
     min-height: 400px;
     margin: 3em 0;
-    padding: 1.5em 1em;
+    padding: 2em 1em;
+    opacity: 0;
+
+    &.visible {
+
+        @include fadeIn(.5s, ease-in, .25s);
+    }
+
+    h1 {
+
+        opacity: 0;
+        transform: translateX(-50px);
+
+        &.visible {
+
+            @include fadeInFromLeft(.5s, ease-in, .5s)
+        }
+    }
+
+    p {
+
+        opacity: 0;
+
+        &.visible {
+
+            @include fadeIn(.5s, ease-in, .75s);
+        }
+    }
+
+    a {
+
+        opacity: 0;
+        transform: translateY(50px);
+
+        &.visible {
+
+            @include fadeInAndUp(.5s, ease-in, 1.25s);
+        }
+    }
+
 }
 
 // Add Value
@@ -481,9 +617,164 @@ main {
 //Footer
 
 footer {
-
-    height: 500px;
+    
     background: url("../img/footer-bg.png");
+}
+
+.footer__content {
+
+    @include flexRow(wrap);
+    padding: 2em 1em;
+    padding-bottom: 4em !important;
+    text-align: center;
+
+    ul {
+        list-style: none;
+    }
+}
+
+.footer__content__contact, .footer__content__links {
+
+    flex: 0 0 100%;
+}
+
+.footer__content__contact {
+
+    font-size: 1.25em;
+
+    > p {
+
+        padding: 1em 0;
+    }
+
+    li, .footer__newsletter {
+
+        padding: .5em 0;
+    }
+
+    .footer__newsletter {
+
+        > p, form {
+
+            padding: .5em 0;
+        }
+
+        .footer__newsletter__wrapper {
+
+            display: inline-block;
+            position: relative;
+
+            .input__fill {
+
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;     
+                overflow: hidden;
+                background: #fff;                
+                color: $primaryText;                
+                width: 100%;
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform .2s linear;
+                font-size: .9em;
+
+                &.fill {
+
+                    transform: scaleX(1);     
+                }
+            }
+
+            .input__fill__text {
+
+                visibility: hidden;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                padding: .5em 2.5em .5em .5em;
+                font-size: .9em;
+                color: $primaryText;
+                white-space: nowrap;
+                overflow: hidden;
+                max-width: 85%;
+
+                &.fill {
+                    visibility: visible;
+                }
+
+            }
+
+            input {
+            
+                background: transparent;
+                padding: .5em 2.5em .5em .5em;
+                border: solid 1px #fff;
+                color: $secondaryText;
+                transition: all .15s ease-in;
+                font-size: .9em;
+            }
+        
+            span {
+
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 999;
+                transition: all .15s ease-in;
+
+                &.fill {
+                    color: $primaryText;
+                }
+
+                &:hover {
+
+                    cursor: pointer;
+                }
+            }
+
+        }
+    }
+}
+
+.footer__content__links {
+
+    margin-top: 1em;
+
+    li {
+
+        padding: .25em 0;
+        font-size: 2em;
+
+        > a {
+
+            position: relative;
+
+            &::after {
+
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -10px;
+                right: 0;
+                width: 0;
+                height: 3px;
+                background: $highlight;
+                transition: width .25s linear;
+            }
+
+            &:hover:after {
+    
+                width: 100%;
+            }
+        }
+
+    }
+}
+
+.footer__icon {
+
+    font-size: 2.5em;
 }
 
 //Footer
