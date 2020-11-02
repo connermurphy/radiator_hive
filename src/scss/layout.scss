@@ -31,6 +31,8 @@ header {
 
 nav {
 
+    opacity: 0;
+    @include fadeIn(.35s, ease-in, 0s);
     flex: 0 1 auto;
     transition: all .2s linear;
     max-width: 1366px;
@@ -47,7 +49,7 @@ nav {
         position: fixed;
         width: 100%;
         z-index: 9999;
-        box-shadow: 2px 2px 6px rgba(0, 0, 0, .5);
+        box-shadow: 0px 2px 4px -4px rgba(0, 0, 0, .5);
         background: #fff;
     }
 
@@ -184,23 +186,41 @@ nav {
 
     h1 {
 
+        transform: translateY(50px);
+        opacity: 0;       
+        @include fadeInAndUp(.5s, ease-in, 0s);
         margin-top: .5em
+        
     }
 
     p {
+
+        transform: translateY(50px);
+        opacity: 0; 
         padding: 1em 0;
+        @include fadeInAndUp(.5s, ease-in, .5s);
+    }
+
+    a {
+
+        opacity: 0;
+        @include fadeIn(.5s, ease-in, .75s);
     }
 }
 
 .header__content__img {
     
     position: relative;
+    opacity: 0;
+    transform: translateX(50px);
+    @include fadeInFromRight(.5s, ease-in, .75s);
     height: 300px;
     max-height: 100%;
     overflow: hidden;
     background-image: url("../img/Cabin-1-Side-View.jpg");
     background-position: center;
     background-size: cover;
+
 
     > img {
 
@@ -270,18 +290,60 @@ nav {
     background: $primaryText;
     padding: 1.5em 1em;
 
+    h1 {
+
+        opacity: 0;
+
+        &.visible {
+            @include fadeIn(.5s, ease-in, .75s);
+        }
+    }
+
     p {
+
+        transform: translateY(50px);
+        opacity: 0;
         padding: 1em 0;
+
+        &:nth-child(1) {
+            
+            &.visible {
+
+                @include fadeInAndUp(.5s, ease-in, .75s);
+            }
+        }
+
+        &:nth-child(2) {
+            
+            &.visible {
+
+                @include fadeInAndUp(.5s, ease-in, .85s);
+            }
+        }
+    }
+
+    a {
+
+        opacity: 0;
+
+        &.visible {
+            @include fadeIn(.5s, ease-in, 1.25s);
+        }
     }
 
 }
 
 .vision__img {
 
+    opacity: 0;
     background-image: url("../img/user.jpg");
     background-position: center;
     background-size: cover;
     height: 400px;
+
+    &.visible {
+        @include fadeIn(.5s, ease-in, .5s);
+    }
 }
 
 // Our vision
@@ -300,6 +362,13 @@ nav {
 }
 
 .carousel__item {    
+
+    opacity: 0;
+    
+    &.visible {
+
+        @include fadeIn(.5s, ease-in, 0s);
+    }
 
     > .carousel__item--img {
 
@@ -324,7 +393,6 @@ nav {
             background-image: url("../img/user.jpg");
         }
     }
-
 }
     
 
@@ -406,7 +474,13 @@ nav {
 
     .dots {
 
+        opacity: 0;
         margin-left: 1.5em;
+
+        &.visible {
+
+            @include fadeIn(.5s, ease-in, .5s);
+        }
 
         .owl-dot {
             width: 15px;
@@ -425,6 +499,20 @@ nav {
     }
 
     .arrows {
+
+        .arrows--left, .arrows--right {
+
+            opacity: 0;
+            transform: translateY(50px);
+
+            &:not(.arrows--right).visible {
+                @include fadeInAndUp(.5s, ease-in, .5s);
+            }
+            
+            &:not(.arrows--left).visible {
+                @include fadeInAndUp(.5s, ease-in, .75s);
+            }
+        }
 
         > div {
 
@@ -480,6 +568,45 @@ nav {
     min-height: 400px;
     margin: 3em 0;
     padding: 2em 1em;
+    opacity: 0;
+
+    &.visible {
+
+        @include fadeIn(.5s, ease-in, .25s);
+    }
+
+    h1 {
+
+        opacity: 0;
+        transform: translateX(-50px);
+
+        &.visible {
+
+            @include fadeInFromLeft(.5s, ease-in, .5s)
+        }
+    }
+
+    p {
+
+        opacity: 0;
+
+        &.visible {
+
+            @include fadeIn(.5s, ease-in, .75s);
+        }
+    }
+
+    a {
+
+        opacity: 0;
+        transform: translateY(50px);
+
+        &.visible {
+
+            @include fadeInAndUp(.5s, ease-in, 1.25s);
+        }
+    }
+
 }
 
 // Add Value

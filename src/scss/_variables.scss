@@ -117,3 +117,69 @@ $bodyFont: europa, sans-serif;
 }
 
 //Text
+
+//Animations
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInAndUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFromLeft {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFromRight {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@mixin fadeIn($duration, $timing, $delay) {
+
+    animation: fadeIn $duration $timing $delay forwards;
+}
+
+@mixin fadeInAndUp($duration, $timing, $delay) {
+
+    animation: fadeInAndUp $duration $timing $delay forwards;
+}
+
+@mixin fadeInFromLeft($duration, $timing, $delay) {
+
+    animation: fadeInFromLeft $duration $timing $delay forwards;
+}
+
+@mixin fadeInFromRight($duration, $timing, $delay) {
+
+    animation: fadeInFromRight $duration $timing $delay forwards;
+}
+
+//Animations

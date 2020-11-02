@@ -81,7 +81,7 @@
 
     header {
 
-        height: 100vh;
+        min-height: 700px;
         margin-bottom: 0;
     }
 
@@ -225,6 +225,12 @@
 }
 
 @media screen and (min-width: 1366px) {
+
+
+    header {
+
+        height: 100vh;
+    }
 
     .container {
         max-width: 1366px;
