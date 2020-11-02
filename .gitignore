@@ -1,6 +1,9 @@
 node_modules/
-assets/css/
-assets/js/
+
+assets/css/responsive.css
+assets/css/layout.css
+assets/js/main.js
+assets/js/main-min.js
 
 .DS_Store
 *.zip
